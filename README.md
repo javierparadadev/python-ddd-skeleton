@@ -1,4 +1,4 @@
-# Python DDD Skeleton
+# Python DDD skeleton
 
 Template of a Python application using Domain-Driven Design and Command Query Responsibility Segregation principles.
 
