@@ -1,5 +1,5 @@
-from abc import ABC, abstractmethod
-from typing import Any, Tuple
+from abc import abstractmethod
+from typing import Any, Generic, TypeVar
 
 from pymongo import MongoClient
 
@@ -7,8 +7,10 @@ from src.contexts.shared.Infrastructure.persistence.mongo.parse_criteria_to_mong
     parse_criteria_to_mongo_query
 from src.contexts.shared.domain.criteria.Criteria import Criteria
 
+T = TypeVar('T')
 
-class PyMongoRepository(ABC):
+
+class PyMongoRepository(Generic[T]):
 
     def __init__(self, client: MongoClient):
         self._client = client
@@ -34,7 +36,7 @@ class PyMongoRepository(ABC):
         data = list(cursor)
         return data
 
-    async def _find_by_criteria(self, criteria: Criteria) -> Tuple[Any, Any]:
+    async def _find_by_criteria(self, criteria: Criteria) -> tuple[Any, Any]:
         raw_query, options = parse_criteria_to_mongo_query(criteria)
         data = list(self._collection.find(raw_query, **options))
         count = self._collection.find(raw_query, **options).count(with_limit_and_skip=True)
