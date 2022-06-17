@@ -9,7 +9,7 @@ from minio import Minio
 class MinioRepository(ABC):
 
     def __init__(self, client: Minio):
-        self.__client = client
+        self._client = client
 
     @abstractmethod
     def get_bucket_name(self) -> str:
@@ -34,7 +34,7 @@ class MinioRepository(ABC):
         if directory_name is None:
             directory_name = self.get_directory_name()
 
-        response = self.__client.get_object(bucket_name, file_name)
+        response = self._client.get_object(bucket_name, file_name)
         encoded_data = io.BytesIO(response.read()).getvalue()
         decoded_data = encoded_data.decode('utf-8')
         if parse_callback is not None:
@@ -75,4 +75,4 @@ class MinioRepository(ABC):
         to_stream_content = io.BytesIO(encoded_content)
 
         bucket_name = self.get_bucket_name()
-        self.__client.put_object(bucket_name, file_name, to_stream_content, len(encoded_content))
+        self._client.put_object(bucket_name, file_name, to_stream_content, len(encoded_content))

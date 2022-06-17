@@ -5,24 +5,24 @@ from src.contexts.shared.Infrastructure.persistence.mongo.PyMongoConfiguration i
 
 class PyMongoClientFactory:
 
-    __clients: dict[str, MongoClient] = {}
+    _clients: dict[str, MongoClient] = {}
 
     @staticmethod
-    def __get_client(context_name: str):
-        return PyMongoClientFactory.__clients.get(context_name)
+    def _get_client(context_name: str):
+        return PyMongoClientFactory._clients.get(context_name)
 
     @staticmethod
-    def __add_client(context_name: str, client: MongoClient):
-        PyMongoClientFactory.__clients[context_name] = client
+    def _add_client(context_name: str, client: MongoClient):
+        PyMongoClientFactory._clients[context_name] = client
 
     @staticmethod
     def create_instance(context_name: str, config: PyMongoConfiguration = None):
-        client = PyMongoClientFactory.__get_client(context_name)
+        client = PyMongoClientFactory._get_client(context_name)
         if client is not None:
             return client
 
         if config is None:
             config = PyMongoConfiguration()
         client = config.create_client_from_config()
-        PyMongoClientFactory.__add_client(context_name, client)
+        PyMongoClientFactory._add_client(context_name, client)
         return client

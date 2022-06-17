@@ -11,9 +11,9 @@ from src.contexts.shared.domain.criteria.Criteria import Criteria
 class PyMongoRepository(ABC):
 
     def __init__(self, client: MongoClient):
-        self.__client = client
-        self.__database = self.__client.get_database(self.get_database_name())
-        self._collection = self.__database.get_collection(self.get_collection_name())
+        self._client = client
+        self._database = self._client.get_database(self.get_database_name())
+        self._collection = self._database.get_collection(self.get_collection_name())
 
     @abstractmethod
     def get_database_name(self):

@@ -13,14 +13,14 @@ class InMemoryQueryBus(BaseObject, QueryBus):
         handler_mapping = {}
         for handler in handlers:
             handler_mapping[handler.subscribed_to()] = handler
-        self.__handler_mapping: dict[str, QueryHandler] = handler_mapping
+        self._handler_mapping: dict[str, QueryHandler] = handler_mapping
 
-    def __search(self, query_name: str):
-        if query_name not in self.__handler_mapping:
+    def _search(self, query_name: str):
+        if query_name not in self._handler_mapping:
             raise QueryNotRegisteredError()
-        return self.__handler_mapping[query_name]
+        return self._handler_mapping[query_name]
 
     async def ask(self, query: Query) -> Any:
         query_type: str = query.get_query_type_name()
-        handler = self.__search(query_type)
+        handler = self._search(query_type)
         return await handler.handle(query)
