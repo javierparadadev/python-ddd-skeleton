@@ -1,7 +1,7 @@
 import io
 import json
 from abc import ABC, abstractmethod
-from typing import Any, Optional, NoReturn
+from typing import Any, Optional
 
 from minio import Minio
 
@@ -48,7 +48,7 @@ class MinioRepository(ABC):
             file_extension: str = None,
             directory_name: str = None,
             codification: str = 'utf-8',
-    ) -> NoReturn:
+    ) -> None:
         content: Optional[str] = None
         if isinstance(obj, str) or isinstance(obj, bytes):
             content = obj

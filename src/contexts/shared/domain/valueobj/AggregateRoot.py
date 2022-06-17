@@ -1,5 +1,4 @@
 from abc import abstractmethod, ABC
-from typing import NoReturn
 
 from src.contexts.shared.domain.DomainEvent import DomainEvent
 
@@ -13,5 +12,5 @@ class AggregateRoot(ABC):
     def to_primitives(self) -> dict:
         raise NotImplementedError()
 
-    def record_event(self, event: DomainEvent) -> NoReturn:
+    def record_event(self, event: DomainEvent) -> None:
         self.__domain_events.append(event)
