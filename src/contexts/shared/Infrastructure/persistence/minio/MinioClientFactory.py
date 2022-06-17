@@ -1,5 +1,3 @@
-from typing import Optional
-
 from minio import Minio
 
 from src.contexts.shared.Infrastructure.persistence.minio.MinioConfiguration import MinioConfiguration
@@ -19,7 +17,7 @@ class MinioClientFactory:
         MinioClientFactory._clients[context_name] = client
 
     @staticmethod
-    def create_instance(context_name: str, config: Optional[PyMongoConfiguration] = None):
+    def create_instance(context_name: str, config: PyMongoConfiguration = None):
         client = MinioClientFactory._get_client(context_name)
         if client is not None:
             return client

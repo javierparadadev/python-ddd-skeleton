@@ -1,5 +1,3 @@
-from typing import Optional
-
 from pymongo import MongoClient
 
 from src.contexts.shared.Infrastructure.persistence.mongo.PyMongoConfiguration import PyMongoConfiguration
@@ -18,7 +16,7 @@ class PyMongoClientFactory:
         PyMongoClientFactory.__clients[context_name] = client
 
     @staticmethod
-    def create_instance(context_name: str, config: Optional[PyMongoConfiguration] = None):
+    def create_instance(context_name: str, config: PyMongoConfiguration = None):
         client = PyMongoClientFactory.__get_client(context_name)
         if client is not None:
             return client

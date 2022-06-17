@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any
 
 from src.contexts.shared.domain.criteria.Filter import Filter
 from src.contexts.shared.domain.criteria.FilterField import FilterField
@@ -14,8 +14,8 @@ from src.contexts.shared.domain.criteria.UpperLimit import UpperLimit
 
 def parse_dict_to_criteria(query: dict[str, Any]) -> tuple[list[Filter], OrderBy | None, Limit | None]:
     filters: list[Filter] = []
-    order: Optional[OrderBy] = None
-    limit: Optional[Limit] = None
+    order: OrderBy | None = None
+    limit: Limit | None = None
 
     for key, value in query.items():
         if key.startswith('$'):

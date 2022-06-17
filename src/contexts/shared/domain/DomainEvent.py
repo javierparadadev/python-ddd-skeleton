@@ -1,7 +1,7 @@
 import uuid
 from abc import ABC, abstractmethod
 from datetime import datetime
-from typing import Optional, Any
+from typing import Any
 
 
 class DomainEvent(ABC):
@@ -10,8 +10,8 @@ class DomainEvent(ABC):
             self,
             name: str,
             aggregate_id: str,
-            event_id: Optional[str],
-            occurred_on: Optional[datetime]):
+            event_id: str | None,
+            occurred_on: datetime | None):
         self.name = name
         self.aggregate_id = aggregate_id
         if self.aggregate_id is None:
