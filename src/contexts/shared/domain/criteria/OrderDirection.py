@@ -14,6 +14,6 @@ class OrderDirection:
 
     def __init__(self, order_dir: str):
         if order_dir not in self.__allowed_values:
-            raise ValueObjectValidationError('Order direction must be one of {} but {} found.'
-                                             .format(self.__allowed_values, order_dir))
+            raise ValueObjectValidationError(f'Order direction must be one of {self.__allowed_values} '
+                                             f'but {order_dir} found.')
         self.value = order_dir

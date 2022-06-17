@@ -1,11 +1,10 @@
 from abc import abstractmethod
-from typing import Union, Dict, List
 
 
 class DomainError(BaseException):
 
     @abstractmethod
-    def to_primitives(self) -> Union[Dict, List]:
+    def to_primitives(self) -> dict | list:
         raise NotImplementedError()
 
     @abstractmethod

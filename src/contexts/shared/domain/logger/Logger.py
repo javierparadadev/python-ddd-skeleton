@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from typing import Any
+from typing import Any, NoReturn
 
 from src.contexts.shared.domain.Interface import Interface
 
@@ -7,17 +7,17 @@ from src.contexts.shared.domain.Interface import Interface
 class Logger(Interface):
 
     @abstractmethod
-    def debug(self, log: Any):
+    def debug(self, log: Any) -> NoReturn:
         raise NotImplementedError()
 
     @abstractmethod
-    def info(self, log: Any):
+    def info(self, log: Any) -> NoReturn:
         raise NotImplementedError()
 
     @abstractmethod
-    def error(self, log: Any):
+    def error(self, log: Any) -> NoReturn:
         raise NotImplementedError()
 
     @abstractmethod
-    def critical(self, log: Any):
+    def critical(self, log: Any) -> NoReturn:
         raise NotImplementedError()

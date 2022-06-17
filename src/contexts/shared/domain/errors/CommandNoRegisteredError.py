@@ -1,5 +1,3 @@
-from typing import Union, Dict, List
-
 from src.contexts.shared.domain.errors.DomainError import DomainError
 
 
@@ -12,7 +10,7 @@ class CommandNotRegisteredError(DomainError):
             msg = 'Command not registered.'
         self.message = msg
 
-    def to_primitives(self) -> Union[Dict, List]:
+    def to_primitives(self) -> dict | list:
         return {
             'message': self.message,
             'id': self.get_id(),

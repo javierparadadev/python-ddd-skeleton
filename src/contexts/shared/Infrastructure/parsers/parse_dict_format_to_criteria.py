@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Tuple, Optional
+from typing import Any, Optional
 
 from src.contexts.shared.domain.criteria.Filter import Filter
 from src.contexts.shared.domain.criteria.FilterField import FilterField
@@ -12,8 +12,8 @@ from src.contexts.shared.domain.criteria.OrderDirection import OrderDirection
 from src.contexts.shared.domain.criteria.UpperLimit import UpperLimit
 
 
-def parse_dict_to_criteria(query: Dict[str, Any]) -> Tuple[List[Filter], Optional[OrderBy], Optional[Limit]]:
-    filters: List[Filter] = []
+def parse_dict_to_criteria(query: dict[str, Any]) -> tuple[list[Filter], OrderBy | None, Limit | None]:
+    filters: list[Filter] = []
     order: Optional[OrderBy] = None
     limit: Optional[Limit] = None
 

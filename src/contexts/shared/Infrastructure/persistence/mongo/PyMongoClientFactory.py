@@ -1,4 +1,4 @@
-from typing import Dict, Optional
+from typing import Optional
 
 from pymongo import MongoClient
 
@@ -7,7 +7,7 @@ from src.contexts.shared.Infrastructure.persistence.mongo.PyMongoConfiguration i
 
 class PyMongoClientFactory:
 
-    __clients: Dict[str, MongoClient] = {}
+    __clients: dict[str, MongoClient] = {}
 
     @staticmethod
     def __get_client(context_name: str):

@@ -1,7 +1,7 @@
 import io
 import json
 from abc import ABC, abstractmethod
-from typing import Any, Optional, NoReturn, List
+from typing import Any, Optional, NoReturn
 
 from minio import Minio
 
@@ -12,11 +12,11 @@ class MinioRepository(ABC):
         self.__client = client
 
     @abstractmethod
-    def get_bucket_name(self):
+    def get_bucket_name(self) -> str:
         raise NotImplementedError()
 
     @abstractmethod
-    def get_directory_name(self):
+    def get_directory_name(self) -> str:
         raise NotImplementedError()
 
     async def _find_one(

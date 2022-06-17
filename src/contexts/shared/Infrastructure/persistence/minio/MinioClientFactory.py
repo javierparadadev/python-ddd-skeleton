@@ -1,4 +1,4 @@
-from typing import Dict, Optional
+from typing import Optional
 
 from minio import Minio
 
@@ -8,24 +8,24 @@ from src.contexts.shared.Infrastructure.persistence.mongo.PyMongoConfiguration i
 
 class MinioClientFactory:
 
-    __clients: Dict[str, Minio] = {}
+    _clients: dict[str, Minio] = {}
 
     @staticmethod
-    def __get_client(context_name: str):
-        return MinioClientFactory.__clients.get(context_name)
+    def _get_client(context_name: str):
+        return MinioClientFactory._clients.get(context_name)
 
     @staticmethod
-    def __add_client(context_name: str, client: Minio):
-        MinioClientFactory.__clients[context_name] = client
+    def _add_client(context_name: str, client: Minio):
+        MinioClientFactory._clients[context_name] = client
 
     @staticmethod
     def create_instance(context_name: str, config: Optional[PyMongoConfiguration] = None):
-        client = MinioClientFactory.__get_client(context_name)
+        client = MinioClientFactory._get_client(context_name)
         if client is not None:
             return client
 
         if config is None:
             config = MinioConfiguration()
         client = config.create_client_from_config()
-        MinioClientFactory.__add_client(context_name, client)
+        MinioClientFactory._add_client(context_name, client)
         return client

@@ -7,12 +7,12 @@ from src.contexts.shared.domain.logger.Logger import Logger
 
 class NativeConsoleLogger(BaseObject, Logger):
 
-    __FORMAT = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+    _FORMAT = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
 
     def __init__(self):
         self.__logger = logging.getLogger(__name__)
         console_handler = logging.StreamHandler()
-        console_handler.setFormatter(self.__FORMAT)
+        console_handler.setFormatter(self._FORMAT)
         self.__logger.addHandler(console_handler)
 
     def debug(self, log: Any):

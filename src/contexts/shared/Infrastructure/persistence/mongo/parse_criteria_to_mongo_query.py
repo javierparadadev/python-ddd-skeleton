@@ -1,9 +1,9 @@
-from typing import Any, Dict, Tuple
+from typing import Any
 
 from src.contexts.shared.domain.criteria.Criteria import Criteria
 
 
-def parse_criteria_to_mongo_query(criteria: Criteria) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+def parse_criteria_to_mongo_query(criteria: Criteria) -> tuple[dict[str, Any], dict[str, Any]]:
     raw_query = {}
     options = {}
 

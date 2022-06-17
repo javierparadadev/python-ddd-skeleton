@@ -7,7 +7,7 @@ class CriteriaQueryMetadata(Metadata):
         super().__init__()
         self.count = count
 
-    def to_dict(self):
+    def to_primitives(self) -> dict:
         return {
             'count': self.count
         }

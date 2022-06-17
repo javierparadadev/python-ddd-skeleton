@@ -1,5 +1,5 @@
 from abc import abstractmethod, ABC
-from typing import Dict, List, Union
+from typing import List, NoReturn
 
 from src.contexts.shared.domain.DomainEvent import DomainEvent
 
@@ -10,13 +10,8 @@ class AggregateRoot(ABC):
         self.__domain_events: List[DomainEvent] = []
 
     @abstractmethod
-    def to_primitives(self) -> Union[Dict, List]:
+    def to_primitives(self) -> dict:
         raise NotImplementedError()
 
-    def pull_domain_events(self):
-        events = self.__domain_events
-        self.__domain_events = []
-        return events
-
-    def record_event(self, event: DomainEvent):
+    def record_event(self, event: DomainEvent) -> NoReturn:
         self.__domain_events.append(event)

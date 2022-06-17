@@ -1,5 +1,3 @@
-from typing import Any, Dict
-
 from src.contexts.shared.domain.BaseObject import BaseObject
 from src.contexts.shared.domain.Command import Command
 from src.contexts.shared.domain.CommandBus import CommandBus
@@ -13,14 +11,14 @@ class InMemoryCommandBus(BaseObject, CommandBus):
         handler_mapping = {}
         for handler in handlers:
             handler_mapping[handler.subscribed_to()] = handler
-        self.__handler_mapping: Dict[str, CommandHandler] = handler_mapping
+        self.__handler_mapping: dict[str, CommandHandler] = handler_mapping
 
-    def __search(self, command_name: str):
+    def _search(self, command_name: str) -> CommandHandler | None:
         if command_name not in self.__handler_mapping:
             raise CommandNotRegisteredError()
         return self.__handler_mapping[command_name]
 
-    async def dispatch(self, command: Command) -> Any:
+    async def dispatch(self, command: Command):
         query_type: str = command.get_command_type_name()
-        handler = self.__search(query_type)
+        handler = self._search(query_type)
         return await handler.handle(command)

@@ -7,5 +7,5 @@ class Metadata(ABC):
         pass
 
     @abstractmethod
-    def to_dict(self):
+    def to_primitives(self) -> dict:
         raise NotImplementedError()

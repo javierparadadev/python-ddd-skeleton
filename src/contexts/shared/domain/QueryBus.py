@@ -1,8 +1,8 @@
 from abc import abstractmethod
 
-from src.contexts.shared.domain.Response import Response
 from src.contexts.shared.domain.Interface import Interface
 from src.contexts.shared.domain.Query import Query
+from src.contexts.shared.domain.Response import Response
 
 
 class QueryBus(Interface):

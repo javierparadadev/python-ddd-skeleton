@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from typing import Any, NoReturn
+from typing import NoReturn
 
 from src.contexts.shared.domain.Command import Command
 from src.contexts.shared.domain.Interface import Interface

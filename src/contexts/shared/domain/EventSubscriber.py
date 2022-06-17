@@ -1,5 +1,4 @@
 from abc import abstractmethod
-from typing import List
 
 from src.contexts.shared.domain.DomainEvent import DomainEvent
 from src.contexts.shared.domain.Interface import Interface
@@ -8,7 +7,7 @@ from src.contexts.shared.domain.Interface import Interface
 class EventSubscriber(Interface):
 
     @abstractmethod
-    def subscribed_to(self) -> List[str]:
+    def subscribed_to(self) -> list[str]:
         raise NotImplementedError()
 
     @abstractmethod
