@@ -1,9 +1,9 @@
 from typing import Any
 
 from src.contexts.shared.domain.BaseObject import BaseObject
-from src.contexts.shared.domain.Query import Query
-from src.contexts.shared.domain.QueryBus import QueryBus
-from src.contexts.shared.domain.QueryHandler import QueryHandler
+from src.contexts.shared.domain.cqrs.Query import Query
+from src.contexts.shared.domain.cqrs.QueryBus import QueryBus
+from src.contexts.shared.domain.cqrs.QueryHandler import QueryHandler
 from src.contexts.shared.domain.errors.QueryNoRegisteredError import QueryNotRegisteredError
 
 

@@ -1,7 +1,7 @@
 from src.contexts.shared.domain.BaseObject import BaseObject
-from src.contexts.shared.domain.Command import Command
-from src.contexts.shared.domain.CommandBus import CommandBus
-from src.contexts.shared.domain.CommandHandler import CommandHandler
+from src.contexts.shared.domain.cqrs.Command import Command
+from src.contexts.shared.domain.cqrs.CommandBus import CommandBus
+from src.contexts.shared.domain.cqrs.CommandHandler import CommandHandler
 from src.contexts.shared.domain.errors.CommandNoRegisteredError import CommandNotRegisteredError
 
 

@@ -1,16 +1,15 @@
 from abc import abstractmethod
-from typing import Any
 
+from src.contexts.shared.domain.event_sourcing.DomainEvent import DomainEvent
 from src.contexts.shared.domain.Interface import Interface
-from src.contexts.shared.domain.Query import Query
 
 
-class QueryHandler(Interface):
+class EventSubscriber(Interface):
 
     @abstractmethod
-    def subscribed_to(self) -> str:
+    def subscribed_to(self) -> list[str]:
         raise NotImplementedError()
 
     @abstractmethod
-    async def handle(self, query: Query) -> Any:
+    async def on(self, domain_event: DomainEvent):
         raise NotImplementedError()

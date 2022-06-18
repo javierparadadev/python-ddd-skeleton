@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABC
 
-from src.contexts.shared.domain.DomainEvent import DomainEvent
+from src.contexts.shared.domain.event_sourcing.DomainEvent import DomainEvent
 
 
 class AggregateRoot(ABC):

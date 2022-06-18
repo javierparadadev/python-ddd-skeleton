@@ -1,7 +1,7 @@
 from src.contexts.shared.domain.BaseObject import BaseObject
-from src.contexts.shared.domain.DomainEvent import DomainEvent
-from src.contexts.shared.domain.EventBus import EventBus
-from src.contexts.shared.domain.EventSubscriber import EventSubscriber
+from src.contexts.shared.domain.event_sourcing.DomainEvent import DomainEvent
+from src.contexts.shared.domain.event_sourcing.EventBus import EventBus
+from src.contexts.shared.domain.event_sourcing.EventSubscriber import EventSubscriber
 
 
 class InMemoryEventBus(BaseObject, EventBus):
