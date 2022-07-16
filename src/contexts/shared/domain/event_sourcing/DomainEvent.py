@@ -1,18 +1,16 @@
 import uuid
 from abc import ABC, abstractmethod
 from datetime import datetime
-from typing import Any
 
 
 class DomainEvent(ABC):
 
     def __init__(
             self,
-            name: str,
+            event_id: str,
             aggregate_id: str,
-            event_id: str | None,
-            occurred_on: datetime | None):
-        self.name = name
+            occurred_on: datetime = None):
+        self.name = self.get_event_type_name()
         self.aggregate_id = aggregate_id
         if self.aggregate_id is None:
             self.aggregate_id = uuid.uuid4()
@@ -26,5 +24,17 @@ class DomainEvent(ABC):
         return self.name
 
     @abstractmethod
-    def to_primitives(self) -> Any:
-        raise NotImplementedError()
+    def to_primitives(self) -> dict:
+        event = {
+            'data': {
+                'id': self.id,
+                'type': self.name,
+                'attributes': {
+                    'id': self.aggregate_id,
+                },
+                'occurred_on': self.occurred_on.isoformat(),
+                'created_at': self.created_at.isoformat(),
+            },
+            'meta': {}
+        }
+        return event

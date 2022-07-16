@@ -5,6 +5,10 @@ from src.contexts.shared.domain.errors.ValueObjectValidationError import ValueOb
 
 class FilterOperatorValues(Enum):
     EQUALS = '='
+    GREATER_THAN = '>'
+    GREATER_THAN_OR_EQUALS = '>='
+    LESS_THAN = '<'
+    LESS_THAN_OR_EQUALS = '<='
 
 
 class FilterOperator:
