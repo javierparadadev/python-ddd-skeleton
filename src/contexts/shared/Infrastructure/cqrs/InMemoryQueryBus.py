@@ -1,10 +1,10 @@
 from typing import Any
 
 from src.contexts.shared.domain.BaseObject import BaseObject
-from src.contexts.shared.domain.cqrs.Query import Query
-from src.contexts.shared.domain.cqrs.QueryBus import QueryBus
-from src.contexts.shared.domain.cqrs.QueryHandler import QueryHandler
-from src.contexts.shared.domain.errors.QueryNoRegisteredError import QueryNotRegisteredError
+from src.contexts.shared.domain.cqrs.query.Query import Query
+from src.contexts.shared.domain.cqrs.query.QueryBus import QueryBus
+from src.contexts.shared.domain.cqrs.query.QueryHandler import QueryHandler
+from src.contexts.shared.domain.cqrs.query.QueryNoRegisteredError import QueryNotRegisteredError
 
 
 class InMemoryQueryBus(BaseObject, QueryBus):

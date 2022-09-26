@@ -1,4 +1,4 @@
-from src.contexts.shared.domain.errors.DomainError import DomainError
+from src.contexts.shared.domain.DomainError import DomainError
 
 
 class ValueObjectValidationError(DomainError):

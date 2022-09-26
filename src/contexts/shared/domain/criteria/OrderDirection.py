@@ -1,6 +1,6 @@
 from enum import Enum
 
-from src.contexts.shared.domain.errors.ValueObjectValidationError import ValueObjectValidationError
+from src.contexts.shared.domain.valueobj.ValueObjectValidationError import ValueObjectValidationError
 
 
 class OrderDirectionValues(Enum):

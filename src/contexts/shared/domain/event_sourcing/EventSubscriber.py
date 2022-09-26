@@ -11,5 +11,5 @@ class EventSubscriber(Interface):
         raise NotImplementedError()
 
     @abstractmethod
-    async def on(self, domain_event: DomainEvent):
+    async def on(self, domain_event: DomainEvent) -> None:
         raise NotImplementedError()

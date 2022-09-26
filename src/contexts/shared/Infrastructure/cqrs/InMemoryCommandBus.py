@@ -1,8 +1,8 @@
 from src.contexts.shared.domain.BaseObject import BaseObject
-from src.contexts.shared.domain.cqrs.Command import Command
-from src.contexts.shared.domain.cqrs.CommandBus import CommandBus
-from src.contexts.shared.domain.cqrs.CommandHandler import CommandHandler
-from src.contexts.shared.domain.errors.CommandNoRegisteredError import CommandNotRegisteredError
+from src.contexts.shared.domain.cqrs.command.Command import Command
+from src.contexts.shared.domain.cqrs.command.CommandBus import CommandBus
+from src.contexts.shared.domain.cqrs.command.CommandHandler import CommandHandler
+from src.contexts.shared.domain.cqrs.command.CommandNoRegisteredError import CommandNotRegisteredError
 
 
 class InMemoryCommandBus(BaseObject, CommandBus):

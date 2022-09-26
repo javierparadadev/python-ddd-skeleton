@@ -1,7 +1,7 @@
 from abc import abstractmethod
 
 from src.contexts.shared.domain.Interface import Interface
-from src.contexts.shared.domain.cqrs.Query import Query
+from src.contexts.shared.domain.cqrs.query.Query import Query
 from src.contexts.shared.domain.Response import Response
 
 

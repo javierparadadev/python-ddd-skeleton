@@ -25,7 +25,10 @@ class InMemoryEventBus(BaseObject, EventBus):
                 continue
             subscribers = self._subscriptions[event_type]
             for subscriber in subscribers:
-                await subscriber.on(event)  # TODO: add gather or future
+                try:
+                    await subscriber.on(event)  # TODO: add gather or future
+                except Exception as e:
+                    pass  # TODO: print error
 
     def add_subscribers(self, subscribers: list[EventSubscriber]) -> None:
         for subscriber in subscribers:

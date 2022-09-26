@@ -1,16 +1,15 @@
 from abc import abstractmethod
-from typing import Any
 
+from src.contexts.shared.domain.cqrs.command.Command import Command
 from src.contexts.shared.domain.Interface import Interface
-from src.contexts.shared.domain.cqrs.Query import Query
 
 
-class QueryHandler(Interface):
+class CommandHandler(Interface):
 
     @abstractmethod
     def subscribed_to(self) -> str:
         raise NotImplementedError()
 
     @abstractmethod
-    async def handle(self, query: Query) -> Any:
+    async def handle(self, command: Command) -> None:
         raise NotImplementedError()
