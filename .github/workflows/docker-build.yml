@@ -1,0 +1,33 @@
+name: docker-build
+
+on: [push, pull_request]
+
+jobs:
+    tests:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone and checkout branch
+              uses: actions/checkout@v2
+
+            - name: Set up Python version
+              uses: actions/setup-python@v2
+              with:
+                python-version: '3.10'
+
+            - name: Build project
+              run: make
+
+            - name: Run tests
+              run: make test
+
+    build:
+        needs: tests
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Clone and checkout branch
+              uses: actions/checkout@v2
+
+            - name: Build docker image
+              run: docker build -t test-tag .
