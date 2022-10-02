@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
     tests:
+        name: Docker tests
         runs-on: ubuntu-latest
         steps:
             - name: Clone and checkout branch
@@ -21,6 +22,7 @@ jobs:
               run: make test
 
     build:
+        name: Docker build
         needs: tests
 
         runs-on: ubuntu-latest
