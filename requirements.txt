@@ -1,5 +1,5 @@
 anyio==3.6.1
-certifi==2022.9.24
+certifi==2022.12.7
 fastapi==0.85.0
 idna==3.4
 minio==7.1.11
