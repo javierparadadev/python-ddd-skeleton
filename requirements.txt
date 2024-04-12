@@ -1,6 +1,6 @@
 anyio==3.6.2
 fastapi==0.109.1
-idna==3.4
+idna==3.7
 minio==7.1.13
 pydantic==1.10.7
 pymongo==4.3.3
