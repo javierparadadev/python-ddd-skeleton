@@ -1,6 +1,6 @@
 <h1 align="center">🐍 Python DDD skeleton</h1>
 
-![](https://raw.githubusercontent.com/jparadadev/python-ddd-skeleton/assets/assets/logo.png)
+![](https://raw.githubusercontent.com/n1nj4t4nuk1/python-ddd-skeleton/assets/assets/logo.png)
 
 
 Template of a REST Api Python application using: Hexagonal Architecture, Domain-Driven Design (DDD), Command Query Response Segregation (CQRS) and Event Sourcing.
