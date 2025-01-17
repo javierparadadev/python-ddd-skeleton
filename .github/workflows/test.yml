@@ -2,7 +2,7 @@ on:
   push:
   pull_request:
   schedule:
-    - cron: '36 6 * * 5'
+    - cron: '36 6 * * *'
 name: Tests
 jobs:
     tests:
